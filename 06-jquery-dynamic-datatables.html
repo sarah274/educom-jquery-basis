@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Datatable</title>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+
+    <script src="js/jquery.js"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function() {
+
+
+            const dTable= $("#theBeatles").DataTable ({
+                
+                    ajax: "https://api.dev-master.ninja/js/beatles",
+                    
+                    columns: [
+                    {data: "id"},
+                    {data: "firstname"},
+                    {data: "lastname"},
+                    {data: "dateOfBirth"},
+                    {data: "email"}
+                ]
+    
+                })
+             
+            // Reload the table every 10 seconds
+            setInterval (function () {
+                dTable.ajax.reload()
+            }, 10000)
+        })
+            // Sending the form to the server
+
+            const form= {
+                firstname: $("#firstname").val(),
+                lastname: $("#lastname").val(),
+                email: $("#email").val()
+            }
+
+            $.ajax ({
+            url: "https://api.dev-master.ninja/js/person/save",
+            method: "POST",
+            data: form,    
+            success: function (dTable) {
+                $("#firstname").val()
+                $("lastname").val()
+                $("email").val()
+
+            console.log (dTable)
+             }
+         })       
+
+    </script>
+</head>
+<body>
+
+<form id="form">
+    
+    First Name: <input type="text" id="firstname"><br>
+    Last Name: <input type="text" id="lastname"><br>
+    Email: <input type="text" id="email"><br>
+    
+</form>
+<button id="save">Save</button>
+
+
+
+    <table id="theBeatles"
+            class="display nowrap dataTable dtr-inline collapsed">
+        <thead>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date of Birth</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Lennon</td>
+                <td></td>
+                <td>john@thebeatles.co.uk</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>George </td>
+                <td>Harrison</td>
+                <td></td>
+                <td>george@thebeatles.co.uk</td>
+                
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Paul</td>
+                <td>McCartney</td>
+                <td></td>
+                <td>paul@thebeatles.co.uk</td>
+                
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Ringo </td>
+                <td>Starr</td>
+                <td></td>
+                <td>ringo@thebeatles.co.uk</td>
+                
+            </tr>
+
+        </tbody>
+    </table>
+        
+        
+</body>
+</html>

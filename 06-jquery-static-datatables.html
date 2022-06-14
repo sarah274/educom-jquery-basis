@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's a datatable</title>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+
+    <script src="js/jquery.js"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        $(document).ready (function () {
+            $('#myTable').DataTable()
+            })
+    
+    </script>
+
+</head>
+<body>
+    <table id="theBeatles"
+            class="display nowrap dataTable dtr-inline collapsed">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Instrument</th>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>John Lennon</td>
+                    <td>john@thebeatles.co.uk</td>
+                    <td>Guitar/ Vocals</td>
+                </tr>
+
+                <tr>
+                    <td>George Harrison</td>
+                    <td>george@thebeatles.co.uk</td>
+                    <td>Guitar/ Vocals</td>
+                </tr>
+
+                <tr>
+                    <td>Paul McCartney</td>
+                    <td>paul@thebeatles.co.uk</td>
+                    <td>Bass/ Vocals</td>
+                </tr>
+
+                <tr>
+                    <td>Ringo Starr</td>
+                    <td>ringo@thebeatles.co.uk</td>
+                    <td>Drums/ Vocals</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
