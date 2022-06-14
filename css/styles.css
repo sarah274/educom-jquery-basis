@@ -26,3 +26,11 @@
     cursor: pointer;
     width: 50 px; 
 }
+
+.star:hover {
+    color: #F00;
+}
+
+.red {
+    color:#F00;
+}
