@@ -20,41 +20,45 @@
                 
                     ajax: "https://api.dev-master.ninja/js/beatles",
                     
-                    columns: [
-                    {data: "id"},
-                    {data: "firstname"},
-                    {data: "lastname"},
-                    {data: "dateOfBirth"},
-                    {data: "email"}
-                ]
+                   columns: [
+                        {data: "id"},
+                        {data: "firstname"},
+                        {data: "lastname"},
+                        {data: "dateOfBirth"},
+                        {data: "email"}
+                    ]
     
-                })
+            })
              
             // Reload the table every 10 seconds
             setInterval (function () {
-                dTable.ajax.reload()
-            }, 10000)
-        })
+                    dTable.ajax.reload()
+                }, 10000)
+            })
             // Sending the form to the server
 
-            const form= {
+            const form = {
                 firstname: $("#firstname").val(),
                 lastname: $("#lastname").val(),
                 email: $("#email").val()
             }
+            console.log(form)
 
-            $.ajax ({
-            url: "https://api.dev-master.ninja/js/person/save",
-            method: "POST",
-            data: form,    
-            success: function (dTable) {
-                $("#firstname").val()
-                $("lastname").val()
-                $("email").val()
+            // $.ajax ({
+            // url: "https://api.dev-master.ninja/js/person/save",
+            // method: "POST",
+            // data: form,    
+            // success: function (dTable) {
+            //     console.log(dTable)
+            //     // $("#firstname").val()
+            //     // $("#lastname").val()
+            //     // $("#email").val()
 
-            console.log (dTable)
-             }
-         })       
+            //  }
+        //  }) 
+        })     
+         
+        
 
     </script>
 </head>
