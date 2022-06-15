@@ -34,7 +34,11 @@
             setInterval (function () {
                     dTable.ajax.reload()
                 }, 10000)
+            
+            $("save").click(function() {
+               alert("Save!")
             })
+                
             // Sending the form to the server
 
             const form = {
@@ -42,20 +46,17 @@
                 lastname: $("#lastname").val(),
                 email: $("#email").val()
             }
-            console.log(form)
 
-            // $.ajax ({
-            // url: "https://api.dev-master.ninja/js/person/save",
-            // method: "POST",
-            // data: form,    
-            // success: function (dTable) {
-            //     console.log(dTable)
-            //     // $("#firstname").val()
-            //     // $("#lastname").val()
-            //     // $("#email").val()
-
-            //  }
-        //  }) 
+            ///AJAX
+             $.ajax ({
+                url: "https://api.dev-master.ninja/js/person/save",
+                method: "POST",
+                data: form,    
+                success: function (dTable) {
+                    alert("Gelukt?")
+                }
+            }) 
+            ///End AJAX
         })     
          
         
